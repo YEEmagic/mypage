@@ -1,70 +1,150 @@
-# Getting Started with Create React App
+# texture
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A configurable jekyll theme for simply beautiful blogs.
 
-## Available Scripts
+**Demo**: [samarsault.com/texture](https://samarsault.com/texture)
 
-In the project directory, you can run:
+![texture theme preview](/screen1.png)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation on Github Pages
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Add this line to your site's `_config.yml`:
+```yaml
+remote_theme: samarsault/texture
+```
 
-### `npm test`
+**NOTE: If you are forking this repo, remove `base_url: /texture` in the `_config.yml` which is required to load the required website assets**
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Add this line to your Jekyll site's `Gemfile`:
 
-### `npm run build`
+```ruby
+gem "texture"
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+And add this line to your Jekyll site's `_config.yml`:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```yaml
+theme: texture
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+And then execute:
 
-### `npm run eject`
+    $ bundle
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Or install it yourself as:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    $ gem install texture
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The "texture" key in _config.yml is used to customize the theme data.
+```yaml
+texture:
+  title: Adam Denisov
+  tagline: Developer. Designer
+  date_format: "%b %-d, %Y"
 
-## Learn More
+  social_links:
+    twitter: thelehhman
+    github:  thelehhman
+    linkedIn: in/thelehhman # format: locale/username
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Styling**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Multiple header styles are supported using the "style" property under texture in `_config.yml`.
 
-### Code Splitting
+```yaml
+texture:
+  style: [yellow|red|black|blue|green|purple]
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+For example, the blue style looks like this:
 
-### Analyzing the Bundle Size
+![texture theme blue](/screen2.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+**Texture Picker**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+You can toggle the texture picker to show/experiment various textures on your site using the showPicker variable. Remember to make it `false` for production.
 
-### Advanced Configuration
+```yaml
+texture:
+  showPicker: [false|true] # show the texture selector(development purposes)
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Comments (Disqus)**
 
-### Deployment
+Comments on posts can be enabled by specifying your disqus_shortname under texture in `_config.yml`. For example,
+```yaml
+texture:
+  disqus_shortname: games
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**Google Analytics**
 
-### `npm run build` fails to minify
+It can be enabled by specifying your analytics id under texture in `_config.yml`
+```yaml
+texture:
+  analytics_id: '< YOUR ID >'
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Excerpts**
+
+Excerpts can be enabled by adding the following line to your `_config.yml`
+```yaml
+show_excerpts: true
+```
+
+**Toggle Navbar**
+
+```yaml
+texture:
+  showNav: true
+```
+
+**Navigation**
+
+After setting `showNav` to true navigation can be built by adding the following to your `_config.yml`
+
+```yaml
+texture:
+  navigation:
+    - title: My Work
+      url: "/my-work"
+    - title: Resume
+      url: "/resume"
+```
+
+**Layouts**
+
+- Home
+- Page
+- Post
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/samarsault/texture. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## Development
+
+To set up your environment to develop this theme, run `bundle install`.
+
+Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
+
+When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
+To add a custom directory to your theme-gem, please edit the regexp in `texture.gemspec` accordingly.
+
+## Donation
+If this project help you reduce time to develop, you can give me a cup of coffee :) 
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/thelehhman)
+
+## License
+
+The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## More Themes
+[plainwhite](https://github.com/samarsault/plainwhite-jekyll)
