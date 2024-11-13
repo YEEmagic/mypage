@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          깃허브 페이지 만들기
         </a>
       </header>
     </div>

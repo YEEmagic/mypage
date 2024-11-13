@@ -1,10 +1,9 @@
 title: Texture Theme
-author: GitHub User
-email: your-email@domain.com
+author: Yeemagic
+email: sehyun5698@gmail.com
 description: > # this means to ignore newlines until "show_exerpts:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Focus on Now
+
 show_excerpts: true # set to true to show excerpts on the homepage
 baseurl: /texture
 
@@ -14,19 +13,20 @@ sass:
   sass_dir: _sass
 
 permalink: /posts/:title/
+
 texture:
-  title: Adam Denisov
-  tagline: Developer. Designer
+  title: Yeemagic
+  tagline: 웹 개발자를 위해 한 걸음씩!
   date_format: "%b %-d, %Y"
   style: black
-  showNav: false
+  showNav: true
   showPicker: true
 
   # generate social links in footer
   social_links:
-    twitter: thelehhman
-    github:  thelehhman
-    linkedIn: in/thelehhman
+    twitter: null
+    github:  null
+    linkedIn: null
     rss: rss
  
 
@@ -36,7 +36,7 @@ texture:
 # - about.md
 
 # Build settings
-# theme: texture
+theme: texture
 
 plugins:
   - jekyll-seo-tag
